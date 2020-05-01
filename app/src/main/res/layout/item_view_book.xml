@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="book"
+            type="org.jh.secondhand.Book" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/viewInfoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textSize="25sp"
+                android:text="@{String.valueOf(book.position+1)+'번'+'째'+' '+'책'}"/>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="책 이름 : "
+                        android:layout_weight="2"
+                        android:textSize="20sp"
+                        android:textAlignment="center"
+                        />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/viewBookName"
+                        android:text="@{book.title}"
+                        android:layout_weight="5"
+                        android:textSize="20sp"
+                        android:textAlignment="center"
+                        />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="저자"
+                            android:layout_weight="1"
+                            android:textSize="18sp"
+                            android:textAlignment="center"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/viewBookAuthor"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{book.author}"
+                            android:layout_weight="3"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="출판사"
+                            android:layout_weight="1"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/viewBookPublishingHouse"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:text="@{book.publishing_house}"
+                            android:textSize="18sp"
+                            />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="ISBN"
+                            android:textSize="18sp"
+                            android:textAlignment="textStart"
+                            android:paddingStart="10dp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/viewISDN"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="@{book.iSDN}"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="보유개수"
+                            android:textSize="18sp"
+                            android:layout_weight="1"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/viewBookNumber"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@{String.valueOf(book.number)+'권'}"
+                            android:textSize="18sp"
+                            />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:text="구입가 : "
+                            android:layout_weight="0.8"
+                            android:paddingStart="8dp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/viewBookCostPrice"
+                            android:text="@{String.valueOf(book.cost_price)+'원'}"
+                            android:textColor="@color/design_default_color_primary_dark"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.3"
+                            android:textSize="18sp"
+                            android:text="판매 희망가격 : "
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/viewBookSellingPrice"
+                            android:textColor="#BB0000"
+                            android:text="@{String.valueOf(book.selling_price) + '원'}"
+                            android:textSize="18sp"
+                            />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="출판일"
+                            android:textSize="18sp"
+                            android:layout_weight="0.7"
+                            android:paddingStart="6dp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:id="@+id/viewPublishingDate"
+                            android:text="@{book.publishing_date}"
+                            android:textSize="18sp"
+                            />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="사용연도"
+                            android:textSize="18sp"
+                            android:layout_weight="0.8"
+                            android:textAlignment="center"/>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@{String.valueOf(book.used_year)}"
+                            android:id="@+id/viewUsedYearText"
+                            android:layout_weight="1"
+                            android:textSize="18sp"
+                            />
+
+
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

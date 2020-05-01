@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="book"
+            type="org.jh.secondhand.Book" />
+        <variable
+            name="adapter"
+            type="org.jh.secondhand.ui.write.BookListAdapter" />
+        <import type="org.jh.secondhand.AfterTextChangedExtendedListener" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="5dp">
+
+            <TextView
+                android:id="@+id/infoText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:textSize="25sp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:visibility="visible"
+                app:cornerRadius="10dp"
+                app:elevation="5dp"
+                app:icon="@drawable/ic_menu_send"
+                app:iconGravity="end"
+                app:iconTint="@color/primaryTextColor" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/bookName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="책 이름"
+                        android:text="@{book.title}"
+                        android:afterTextChanged="@{(AfterTextChangedExtendedListener)adapter}"
+                        android:position="@{book.position}"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/author"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="저자"
+                                android:text="@{book.author}"
+                                android:afterTextChanged="@{(AfterTextChangedExtendedListener)adapter}"
+                                android:position="@{book.position}"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/publishingHouse"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="출판사"
+                                android:text="@{book.publishing_house}"
+                                android:afterTextChanged="@{(AfterTextChangedExtendedListener)adapter}"
+                                android:position="@{book.position}"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/ISDN"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="ISDN"
+                                android:inputType="numberSigned|number"
+                                android:text="@{book.iSDN}"
+                                android:afterTextChanged="@{(AfterTextChangedExtendedListener)adapter}"
+                                android:position="@{book.position}"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/numberOfHoldings"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="보유 개수"
+                                android:text="@{String.valueOf(book.number)}"
+                                android:inputType="numberSigned|number"
+                                android:afterTextChanged="@{(AfterTextChangedExtendedListener)adapter}"
+                                android:position="@{book.position}"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/costPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="구매가(원가)"
+                                android:text="@{String.valueOf(book.cost_price)}"
+                                android:inputType="numberSigned"
+                                android:textColor="@color/design_default_color_primary_dark"
+                                android:afterTextChanged="@{(AfterTextChangedExtendedListener)adapter}"
+                                android:position="@{book.position}"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/sellingPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="판매가"
+                                android:text="@{String.valueOf(book.selling_price)}"
+                                android:inputType="numberSigned"
+                                android:textColor="#BB0000"
+                                android:afterTextChanged="@{(AfterTextChangedExtendedListener)adapter}"
+                                android:position="@{book.position}"
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/publishingDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusable="false"
+                                android:hint="출판일"
+                                android:text="@{book.publishing_date}"
+                                android:inputType="date" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/usedYearText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="사용연도"
+                                android:textAlignment="center"/>
+
+                            <Spinner
+                                android:id="@+id/usedYear"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textAlignment="viewEnd"
+                                />
+                        </LinearLayout>
+
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

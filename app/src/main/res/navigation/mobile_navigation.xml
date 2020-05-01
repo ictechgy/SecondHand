@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="org.jh.secondhand.SelectFragment"
+        android:label="선택화면"
+        tools:layout="@layout/fragment_select"/>
+
+    <fragment
+        android:id="@+id/nav_sell"
+        android:name="org.jh.secondhand.ui.sell.SellFragment"
+        android:label="판매게시글들"
+        tools:layout="@layout/fragment_sell" />
+
+    <fragment
+        android:id="@+id/nav_buy"
+        android:name="org.jh.secondhand.ui.buy.BuyFragment"
+        android:label="구매게시글들"
+        tools:layout="@layout/fragment_buy" />
+
+    <fragment
+        android:id="@+id/nav_write_sell"
+        android:name="org.jh.secondhand.ui.write.WriteSellFragment"
+        android:label="판매 게시글 쓰기"
+        tools:layout="@layout/fragment_write_sell"
+        />
+
+    <fragment
+        android:id="@+id/nav_view_sell"
+        android:name="org.jh.secondhand.ui.view.SellViewFragment"
+        android:label="판매 게시글 상세보기"
+        tools:layout="@layout/fragment_sell_view"
+        />
+
+</navigation>
